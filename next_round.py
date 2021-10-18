@@ -4,18 +4,12 @@ n = int(nk[0])
 k = int(nk[1])
 
 raw_notas = input()
-notas = raw_notas.split()#cuidado, este es una cadena de str, hay que realizar casting para hacerlos valores enteros
-
+notas = raw_notas.split()
 nota_aprobacion = int(notas[k-1])
 notas_int = list(map(lambda x:int(x),notas))
-
-aprobados = [nota for nota in notas_int if nota>=nota_aprobacion]
-print(len(aprobados)) #esta linea muestra los aprobados
-
-#comprobar para el segundo caso del enunciado, aun retorna un valor errado
 pasan = []
-for valores in  aprobados[-1::-1]: #recorriendo la lista de aprobados al revés
+aprobados = [nota for nota in notas_int if nota>=nota_aprobacion]
+for valores in  aprobados[-1::-1]:
     if valores != 0:
         pasan.append(valores)
-print(pasan)
-print('total que pasan a siguiente ronda: {}'.format(len(pasan)))
+print(len(pasan))
